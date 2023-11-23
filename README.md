@@ -8,5 +8,5 @@ Install the package, change the messages and keys as needed. Uncomment the conso
 
 ## Scripts
 
-`start` runs the script in Node
-`dev` runs the script in nodemon so changes are reflected immediately on save.
+- `start` runs the script in Node
+- `dev` runs the script in nodemon so changes are reflected immediately on save.
