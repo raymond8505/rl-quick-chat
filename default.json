@@ -9,8 +9,8 @@
   "NUMPAD 5": ["Don't Blame Me, I Was Getting Boost!"],
   "NUMPAD 6": ["Someone's Being A Grumpy Grog!"],
   "NUMPAD 7": [
-    "I see what you were trying to do there! You almost got it, I think. Keep trying!",
-    "What a save! But, like in a sincere way. That was super close!"
+    "I see what you were trying to do there. You almost got it, I think. Keep trying!",
+    "What a save, but, like in a sincere way. That was super close!"
   ],
   "NUMPAD 8": [
     "This Is Diddy Kong Racing!",
@@ -23,5 +23,8 @@
     "This Is GTA V!",
     "This Is The Rocket League Of Extraordinary Gentlemen!",
     "This Is Leisure Suit Larry!"
+  ],
+  "NUMPAD 9": [
+    "maybe it's the beer talking Marge, but you got a butt that won't quit. They got those big chewy pretzels here... fgdsafdsaijdfs FIVE DOLLARS? Get outta here"
   ]
 }

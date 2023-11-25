@@ -10,3 +10,13 @@ Install the package, change the messages and keys as needed. Uncomment the conso
 
 - `start` runs the script in Node
 - `dev` runs the script in nodemon so changes are reflected immediately on save.
+
+## JSON Schema
+
+Top level keys are the key name, values are array of messages to pick from
+
+```json
+{
+  "<key name>": ["message 1", "message 2", "etc..."]
+}
+```

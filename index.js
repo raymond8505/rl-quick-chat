@@ -44,6 +44,7 @@ async function chatRandom(key) {
 keyboard.addListener(async function (e, down) {
   if (e.state === "UP") {
     const keyMessages = messages[e.name];
+    //console.log(e.name);
 
     if (keyMessages) {
       if (keyMessages.msgs.length > 1) {
