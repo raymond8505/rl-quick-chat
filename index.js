@@ -1,16 +1,21 @@
 const { GlobalKeyboardListener } = require("node-global-key-listener");
 const keyboard = new GlobalKeyboardListener();
-var ks = require("node-key-sender");
+const ks = require("node-key-sender");
+const logSingle = require("single-line-log").stdout;
 
 // change which json you want to load here
 const messages = require("./default.json");
 
+console.log("=== LEGEND ===");
 Object.keys(messages).forEach((key) => {
-  const msgs = messages[key];
+  const { msgs, name } = messages[key];
   const lastMessageIndex = -1;
 
-  messages[key] = { msgs, lastMessageIndex };
+  messages[key] = { name, msgs, lastMessageIndex };
+
+  console.log(key, "=>", name);
 });
+console.log("==============");
 
 const sendkeys = require("sendkeys");
 function sleep(ms) {
@@ -44,7 +49,7 @@ async function chatRandom(key) {
 keyboard.addListener(async function (e, down) {
   if (e.state === "UP") {
     const keyMessages = messages[e.name];
-    //console.log(e.name);
+    logSingle(`Last Key Pressed: "${e.name}"`);
 
     if (keyMessages) {
       if (keyMessages.msgs.length > 1) {
