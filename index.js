@@ -1,6 +1,8 @@
 const { GlobalKeyboardListener } = require("node-global-key-listener");
 const keyboard = new GlobalKeyboardListener();
 var ks = require("node-key-sender");
+
+// change which json you want to load here
 const messages = require("./default.json");
 
 Object.keys(messages).forEach((key) => {
@@ -38,32 +40,6 @@ async function chatRandom(key) {
   messages[key].lastMessageIndex = i;
   chat(messages[key].msgs[i]);
 }
-
-const THIS_IS = [
-  "This Is Diddy Kong Racing!",
-  "This Is Cruisin' USA!",
-  "Is This Rocket League?",
-  "This Is Euro Truck Sim II!",
-  "This Is Sparta!",
-  "This Is Motor Kombat!",
-  "This Is Team Sonic Racing!",
-  "This Is GTA V!",
-  "This Is The Rocket League Of Extraordinary Gentlemen!",
-];
-
-const EXCUSES = [
-  "Sorry, my computer is haunted and the ghost is only Gold",
-  "Sorry, I spilled beans on my controller",
-];
-
-const BUMPING = ["Rude!", "Ouch, my body!", "Kisses!", "I Need An Adult!"];
-
-const POST_GAME = ["Gilmore Girls"];
-
-const NICE_TRY = [
-  "I see what you were trying to do there! You almost got it, I think. Keep trying!",
-  "What a save! But, like in a sincere way. That was super close!",
-];
 
 keyboard.addListener(async function (e, down) {
   if (e.state === "UP") {
