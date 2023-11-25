@@ -6,6 +6,8 @@ Custom quick chats, either one chat per chosen key, or choose randomly from a se
 
 Install the package, change the messages and keys as needed. Uncomment the console log of `e.name` then run and press the key to find key codes.
 
+`default.json` Contains my starter messages and keys, change as you please, or create other themed json files to use instead
+
 ## Scripts
 
 - `start` runs the script in Node
