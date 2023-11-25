@@ -1,6 +1,14 @@
 const { GlobalKeyboardListener } = require("node-global-key-listener");
 const keyboard = new GlobalKeyboardListener();
 var ks = require("node-key-sender");
+const messages = require("./default.json");
+
+Object.keys(messages).forEach((key) => {
+  const msgs = messages[key];
+  const lastMessageIndex = -1;
+
+  messages[key] = { msgs, lastMessageIndex };
+});
 
 const sendkeys = require("sendkeys");
 function sleep(ms) {
@@ -11,15 +19,24 @@ function sleep(ms) {
 
 //
 async function chat(msg, public = true) {
-  console.log(msg);
+  //console.log(msg);
+
   await sendkeys(public ? "t" : "y");
   await sleep(35);
   await sendkeys(msg);
   return ks.sendKey("enter");
 }
 
-async function chatRandom(msgs) {
-  chat(msgs[Math.round(Math.random() * (msgs.length - 1))]);
+function random(tot, except) {
+  const i = Math.round(Math.random() * (tot - 1));
+
+  return i === except ? random(tot, except) : i;
+}
+
+async function chatRandom(key) {
+  const i = random(messages[key].msgs.length, messages[key].lastMessageIndex);
+  messages[key].lastMessageIndex = i;
+  chat(messages[key].msgs[i]);
 }
 
 const THIS_IS = [
@@ -30,15 +47,16 @@ const THIS_IS = [
   "This Is Sparta!",
   "This Is Motor Kombat!",
   "This Is Team Sonic Racing!",
+  "This Is GTA V!",
+  "This Is The Rocket League Of Extraordinary Gentlemen!",
 ];
 
 const EXCUSES = [
   "Sorry, my computer is haunted and the ghost is only Gold",
-  "I used to be Champ, but I took an arrow to the knee",
   "Sorry, I spilled beans on my controller",
 ];
 
-const BUMPING = ["Rude!", "Ouch, my body!", "Kisses!"];
+const BUMPING = ["Rude!", "Ouch, my body!", "Kisses!", "I Need An Adult!"];
 
 const POST_GAME = ["Gilmore Girls"];
 
@@ -47,34 +65,16 @@ const NICE_TRY = [
   "What a save! But, like in a sincere way. That was super close!",
 ];
 
-keyboard.addListener(function (e, down) {
+keyboard.addListener(async function (e, down) {
   if (e.state === "UP") {
-    //console.log(e.name);
-    switch (e.name) {
-      case "NUMPAD 1":
-        chatRandom(EXCUSES);
-        break;
-      case "NUMPAD 2":
-        chatRandom(BUMPING);
-        break;
-      case "NUMPAD 3":
-        chat("That's A Spicy Meat-A-Ball!");
-        break;
-      case "NUMPAD 4":
-        chatRandom(POST_GAME);
-        break;
-      case "NUMPAD 5":
-        chat("Don't Blame Me, I Was Getting Boost!");
-        break;
-      case "NUMPAD 6":
-        chat("Cashew!");
-        break;
-      case "NUMPAD 7":
-        chatRandom(NICE_TRY);
-      case "NUMPAD 8":
-        chatRandom(THIS_IS);
-        break;
-      //case "NUMPAD 9":
+    const keyMessages = messages[e.name];
+
+    if (keyMessages) {
+      if (keyMessages.msgs.length > 1) {
+        await chatRandom(e.name);
+      } else {
+        await chat(keyMessages.msgs[0]);
+      }
     }
   }
 });
