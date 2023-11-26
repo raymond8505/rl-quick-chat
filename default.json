@@ -3,17 +3,19 @@
     "name": "Sorry",
     "msgs": [
       "Sorry, my computer is haunted and the ghost is only Gold",
-      "Sorry, I spilled beans on my controller"
+      "Sorry, I spilled beans on my controller",
+      "Sorry, my mom is cutting onions and it's hard to see through the tears",
+      "Sorry, my mom is doing her OnlyFans and it's making me lag"
     ]
   },
   "NUMPAD 2": {
     "name": "Demos",
     "msgs": ["Rude!", "Ouch, my body!", "Kisses!", "I Need An Adult!"]
   },
-  "NUMPAD 3": { "name": "Goals", "msgs": ["That's A Spicy Meat-A-Ball!"] },
+  "NUMPAD 3": { "name": "Nice Goal", "msgs": ["That's A Spicy Meat-A-Ball!"] },
   "NUMPAD 4": { "name": "Post Game", "msgs": ["Gilmore Girls"] },
   "NUMPAD 5": {
-    "name": "Boost",
+    "name": "Cheeky Boost",
     "msgs": ["Don't Blame Me, I Was Getting Boost!"]
   },
   "NUMPAD 6": {
@@ -38,13 +40,13 @@
       "This Is Motor Kombat!",
       "This Is Team Sonic Racing!",
       "This Is The Rocket League Of Extraordinary Gentlemen!",
-      "This Is Leisure Suit Larry!"
+      "This Is Leisure Suit Larry!",
+      "This Is Getting Out Of Hand!",
+      "This Is... A Good Time To Talk About Our Lord And Savior, Sunless Khan!"
     ]
   },
   "NUMPAD 9": {
-    "name": "Random Nonsense",
-    "msgs": [
-      "Maybe it's the beer talking Marge, but you got a butt that won't quit. They got those big chewy pretzels here... fgdsafdsaijdfs FIVE DOLLARS? Get outta here"
-    ]
+    "name": "Nice Play",
+    "msgs": ["That's Fuckin Team Work!"]
   }
 }
