@@ -1,60 +1,43 @@
 {
   "NUMPAD 1": {
     "name": "Sorry",
-    "msgs": [
-      "Sorry A Guy Broke Into My House And Started Playing On My Account With His Eyes Closed!",
-      "Sorry, Controller Fell In The Toilet!",
-      "Sorry! I'm Champ In Casual I Swear!",
-      "Sorry, My Computer Is Haunted And The Ghost Is Only Gold!",
-      "Sorry, I Spilled Beans On My Controller",
-      "Sorry, My Mom Is Cutting Onions And It's Hard To See through The Tears",
-      "Sorry, My Mom Is Doing Her OnlyFans And It's Making Me Lag"
-    ]
+    "msgs": ["Sorry Messages", "...add your own"]
   },
   "NUMPAD 2": {
     "name": "Demos",
-    "msgs": ["Rude!", "Ouch, my body!", "Kisses!", "I Need An Adult!"]
+    "msgs": ["Post Demo Messages"]
   },
   "NUMPAD 3": {
     "name": "Nice Goal",
-    "msgs": ["That's A Spicy Meat-A-Ball!", "Pop Pop!"]
+    "msgs": ["Nice Goal Messages"]
   },
-  "NUMPAD 4": { "name": "Post Game", "msgs": ["Gilmore Girls"] },
+  "NUMPAD 4": { "name": "Post Game", "msgs": ["Post Game Messages"] },
   "NUMPAD 5": {
     "name": "Cheeky Boost",
     "msgs": [
-      "Don't Blame Me, I Was Getting Boost!",
-      "Full Boost Go Brrr",
-      "Cheeky Boost!"
+      "Messages when I shouldnt have gotten boost and something bad happened because of it"
     ]
   },
   "NUMPAD 6": {
     "name": "Responses To Toxicity",
-    "msgs": ["Someone's Being A Grumpy Grog!", "Turn That Frown Upside Down!"]
+    "msgs": ["What a Save!"]
   },
   "NUMPAD 7": {
     "name": "Nice Try",
     "msgs": [
-      "I see what you were trying to do there. You almost got it, I think. Keep trying!",
-      "What a save, but, like in a sincere way. That was super close!"
+      "Things to say that are more specific than 'Close One!' when someone had a nice try"
     ]
   },
   "NUMPAD 8": {
     "name": "This Is Rocket League",
-    "msgs": [
-      "This Isn't Diddy Kong Racing!",
-      "This Isn't Cruisin' USA!",
-      "Is This Rocket League?",
-      "This Isn't Euro Truck Sim II!",
-      "This Isn't Garfield Kart!",
-      "This Isn't Motor Kombat!",
-      "This Isn't Team Sonic Racing!",
-      "This Isn't Leisure Suit Larry!",
-      "This Is Getting Out Of Hand!"
-    ]
+    "msgs": ["Is This Rocket League?"]
   },
   "NUMPAD 9": {
     "name": "Nice Play",
-    "msgs": ["That's Fuckin Team Work!"]
+    "msgs": ["Nice Play, but more wordy"]
+  },
+  "NUMPAD 0": {
+    "name": "Add your own",
+    "msgs": ["Change the names and messages above however you see fit."]
   }
 }
