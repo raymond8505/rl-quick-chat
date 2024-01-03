@@ -2,9 +2,10 @@ const { GlobalKeyboardListener } = require("node-global-key-listener");
 const keyboard = new GlobalKeyboardListener();
 const ks = require("node-key-sender");
 const logSingle = require("single-line-log").stdout;
+require("dotenv").config();
 
 // change which json you want to load here
-const messages = require("./default.json");
+const messages = require(process.env.MESSAGES_SRC);
 const SINGLE_MODE_KEY = "LEFT ALT";
 
 const sendkeys = require("sendkeys");

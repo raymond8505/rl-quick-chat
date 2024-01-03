@@ -17,7 +17,7 @@ Install the package, change the messages and keys as needed. Uncomment the conso
 
 **Can only choose from the first 10 messages in a group, might add pagination eventually**
 
-Holding left alt and pressing a message key will enter `Single Mode`. Relaese alt, the console will show all messages in the chosen group along with their index. The next numpad press will send the associated message
+Holding left alt and pressing a message key will enter `Single Mode`. Release alt, the console will show all messages in the chosen group along with their index. The next numpad press will send the associated message
 eg: alt+numpad 1 chooses the "sorry" group, release alt and press numpad 1 chooses the message at index 1.
 
 ## JSON Schema
