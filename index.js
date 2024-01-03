@@ -51,15 +51,14 @@ ${msgs.reduce((str, cur, curIndex) => {
 }
 
 function printAllKeys() {
-  logSingle(`=== LEGEND ===
-${Object.keys(messages).reduce((str, key) => {
-  const { msgs, name } = messages[key];
-  const lastMessageIndex = -1;
+  logSingle(`=== LEGEND ===${Object.keys(messages).reduce((str, key) => {
+    const { msgs, name } = messages[key];
+    const lastMessageIndex = -1;
 
-  messages[key] = { name, msgs, lastMessageIndex };
+    messages[key] = { name, msgs, lastMessageIndex };
 
-  return `${str}\n${key} => ${name}`;
-}, "")}
+    return `${str}\n${key} => ${name}`;
+  }, "")}
 ==============`);
 }
 
