@@ -2,25 +2,35 @@
   "NUMPAD 1": {
     "name": "Sorry",
     "msgs": [
-      "Sorry, my computer is haunted and the ghost is only Gold",
-      "Sorry, I spilled beans on my controller",
-      "Sorry, my mom is cutting onions and it's hard to see through the tears",
-      "Sorry, my mom is doing her OnlyFans and it's making me lag"
+      "Sorry A Guy Broke In And Started Playing On My Account With His Eyes Closed!",
+      "Sorry, Controller Fell In The Toilet!",
+      "Sorry! I'm Champ In Casual I Swear!",
+      "Sorry, My Computer Is Haunted And The Ghost Is Only Gold!",
+      "Sorry, I Spilled Beans On My Controller",
+      "Sorry, My Mom Is Cutting Onions And It's Hard To See through The Tears",
+      "Sorry, My Mom Is Doing Her OnlyFans And It's Making Me Lag"
     ]
   },
   "NUMPAD 2": {
     "name": "Demos",
     "msgs": ["Rude!", "Ouch, my body!", "Kisses!", "I Need An Adult!"]
   },
-  "NUMPAD 3": { "name": "Nice Goal", "msgs": ["That's A Spicy Meat-A-Ball!"] },
+  "NUMPAD 3": {
+    "name": "Nice Goal",
+    "msgs": ["That's A Spicy Meat-A-Ball!", "Pop Pop!"]
+  },
   "NUMPAD 4": { "name": "Post Game", "msgs": ["Gilmore Girls"] },
   "NUMPAD 5": {
     "name": "Cheeky Boost",
-    "msgs": ["Don't Blame Me, I Was Getting Boost!"]
+    "msgs": [
+      "Don't Blame Me, I Was Getting Boost!",
+      "Full Boost Go Brrr",
+      "Cheeky Boost!"
+    ]
   },
   "NUMPAD 6": {
     "name": "Responses To Toxicity",
-    "msgs": ["Someone's Being A Grumpy Grog!"]
+    "msgs": ["Someone's Being A Grumpy Grog!", "Turn That Frown Upside Down!"]
   },
   "NUMPAD 7": {
     "name": "Nice Try",
@@ -32,17 +42,15 @@
   "NUMPAD 8": {
     "name": "This Is Rocket League",
     "msgs": [
-      "This Is Diddy Kong Racing!",
-      "This Is Cruisin' USA!",
+      "This Isn't Diddy Kong Racing!",
+      "This Isn't Cruisin' USA!",
       "Is This Rocket League?",
-      "This Is Euro Truck Sim II!",
-      "This Is Sparta!",
-      "This Is Motor Kombat!",
-      "This Is Team Sonic Racing!",
-      "This Is The Rocket League Of Extraordinary Gentlemen!",
-      "This Is Leisure Suit Larry!",
-      "This Is Getting Out Of Hand!",
-      "This Is... A Good Time To Talk About Our Lord And Savior, Sunless Khan!"
+      "This Isn't Euro Truck Sim II!",
+      "This Isn't Garfield Kart!",
+      "This Isn't Motor Kombat!",
+      "This Isn't Team Sonic Racing!",
+      "This Isn't Leisure Suit Larry!",
+      "This Is Getting Out Of Hand!"
     ]
   },
   "NUMPAD 9": {

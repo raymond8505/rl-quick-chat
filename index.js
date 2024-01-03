@@ -5,6 +5,7 @@ const logSingle = require("single-line-log").stdout;
 
 // change which json you want to load here
 const messages = require("./default.json");
+const SINGLE_MODE_KEY = "LEFT ALT";
 
 console.log("=== LEGEND ===");
 Object.keys(messages).forEach((key) => {
@@ -46,16 +47,66 @@ async function chatRandom(key) {
   chat(messages[key].msgs[i]);
 }
 
+let singleMode = false;
+let singleModeKey = "";
+
+function printAllMessages(key) {
+  const { name, msgs } = messages[key];
+
+  logSingle(
+    `=== ${name} ===
+${msgs.reduce((str, cur, curIndex) => {
+  return `${str}\n${curIndex} => ${cur}`;
+}, "")}
+======
+`
+  );
+}
+
 keyboard.addListener(async function (e, down) {
   if (e.state === "UP") {
-    const keyMessages = messages[e.name];
-    logSingle(`Last Key Pressed: "${e.name}"`);
+    if (e.name === SINGLE_MODE_KEY) {
+      singleMode = !singleMode;
+    } else {
+      if (!messages[e.name] && !singleMode) return;
 
-    if (keyMessages) {
-      if (keyMessages.msgs.length > 1) {
-        await chatRandom(e.name);
-      } else {
-        await chat(keyMessages.msgs[0]);
+      const keyMessages = messages[e.name];
+
+      if (down[SINGLE_MODE_KEY]) {
+        printAllMessages(e.name);
+        singleModeKey = e.name;
+        return;
+      }
+
+      if (singleMode) {
+        singleMode = false;
+        console.log(e.name);
+
+        const singleIndexMatch = e.name.match(/NUMPAD ([\d])/);
+
+        const singleModeMessages = messages[singleModeKey];
+
+        if (
+          singleIndexMatch &&
+          singleIndexMatch.length >= 2 &&
+          singleModeMessages?.msgs &&
+          Number(singleIndexMatch[1]) < singleModeMessages?.msgs?.length
+        ) {
+          console.log(singleModeMessages.msgs[Number(singleIndexMatch[1])]);
+          chat(singleModeMessages.msgs[Number(singleIndexMatch[1])]);
+        }
+
+        return;
+      }
+
+      logSingle(`Last Key Pressed: "${e.name}"`);
+
+      if (keyMessages && !singleMode) {
+        if (keyMessages.msgs.length > 1) {
+          await chatRandom(e.name);
+        } else {
+          await chat(keyMessages.msgs[0]);
+        }
       }
     }
   }
