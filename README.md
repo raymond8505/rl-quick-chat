@@ -15,8 +15,8 @@ Install the package, change the messages and names as needed.
 
 1. Install the package
 2. Copy `default.json`
-3. Rename `.END copy` to `.ENV`
-4. Open .ENV and change `MESSAGES_SRC` to point to your copy of `default.json`
+3. Rename `.ENV copy` to `.ENV`
+4. Open `.ENV` and change `MESSAGES_SRC` to point to your copy of `default.json`
 5. Run `start` script
 
 ## Use
@@ -25,16 +25,16 @@ This is a pretty brute force solution, but it works so whatevs. The script liste
 
 Because it's not instant I find sticking to messages you can send when you have a quick moment like
 
-- between goals
-- after getting demoed\
-- when it's 7-0 and both your teammates are AFK, but neither will FF
-- before kick off.
+- Between goals!
+- After getting demoed!
+- When it's 7-0 and both your teammates are AFK, but neither will FF.
+- Before kick off!
 
 You know, standard Rocket League situations when time isn't important.
 
 ## Different Message Sources
 
-The .ENV var `MESSAGES_SRC` points at the json file to use for the messages. Easily create multiple messages files and swap them by changing the path here. `default.json` contains a starter JSON for you.
+The `.ENV` var `MESSAGES_SRC` points at the json file to use for the messages. Easily create multiple messages files and swap them by changing the path here. `default.json` contains a starter JSON for you.
 
 ## Single Mode
 
@@ -49,6 +49,7 @@ Top level keys are the key name, values are array of messages to pick from
 
 ```json
 {
-  "<key name>": ["message 1", "message 2", "etc..."]
+  "<key name>": ["message 1", "message 2", "etc..."],
+  "<key name>": ["message 3", "message 4", "etc..."]
 }
 ```
