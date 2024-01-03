@@ -1,6 +1,6 @@
 # What?
 
-Custom quick chats, either one chat per chosen key, or choose randomly from a set of similar chats
+Custom quick chats, randomly send a quickchat from a group associated with a key, or send a specific one with `Single Mode`.
 
 # How?
 
@@ -12,6 +12,13 @@ Install the package, change the messages and keys as needed. Uncomment the conso
 
 - `start` runs the script in Node
 - `dev` runs the script in nodemon so changes are reflected immediately on save.
+
+## Single Mode
+
+**Can only choose from the first 10 messages in a group, might add pagination eventually**
+
+Holding left alt and pressing a message key will enter `Single Mode`. Relaese alt, the console will show all messages in the chosen group along with their index. The next numpad press will send the associated message
+eg: alt+numpad 1 chooses the "sorry" group, release alt and press numpad 1 chooses the message at index 1.
 
 ## JSON Schema
 

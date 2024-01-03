@@ -14,10 +14,7 @@ function sleep(ms) {
   });
 }
 
-//
 async function chat(msg, public = true) {
-  //console.log(msg);
-
   await sendkeys(public ? "t" : "y");
   await sleep(35);
   await sendkeys(msg);
@@ -66,6 +63,7 @@ ${Object.keys(messages).reduce((str, key) => {
 }
 
 printAllKeys();
+
 keyboard.addListener(async function (e, down) {
   if (e.state === "UP") {
     if (e.name === SINGLE_MODE_KEY) {
