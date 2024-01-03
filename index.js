@@ -7,17 +7,6 @@ const logSingle = require("single-line-log").stdout;
 const messages = require("./default.json");
 const SINGLE_MODE_KEY = "LEFT ALT";
 
-console.log("=== LEGEND ===");
-Object.keys(messages).forEach((key) => {
-  const { msgs, name } = messages[key];
-  const lastMessageIndex = -1;
-
-  messages[key] = { name, msgs, lastMessageIndex };
-
-  console.log(key, "=>", name);
-});
-console.log("==============");
-
 const sendkeys = require("sendkeys");
 function sleep(ms) {
   return new Promise((resolve) => {
@@ -63,6 +52,20 @@ ${msgs.reduce((str, cur, curIndex) => {
   );
 }
 
+function printAllKeys() {
+  logSingle(`=== LEGEND ===
+${Object.keys(messages).reduce((str, key) => {
+  const { msgs, name } = messages[key];
+  const lastMessageIndex = -1;
+
+  messages[key] = { name, msgs, lastMessageIndex };
+
+  return `${str}\n${key} => ${name}`;
+}, "")}
+==============`);
+}
+
+printAllKeys();
 keyboard.addListener(async function (e, down) {
   if (e.state === "UP") {
     if (e.name === SINGLE_MODE_KEY) {
@@ -80,7 +83,6 @@ keyboard.addListener(async function (e, down) {
 
       if (singleMode) {
         singleMode = false;
-        console.log(e.name);
 
         const singleIndexMatch = e.name.match(/NUMPAD ([\d])/);
 
@@ -96,6 +98,7 @@ keyboard.addListener(async function (e, down) {
           chat(singleModeMessages.msgs[Number(singleIndexMatch[1])]);
         }
 
+        printAllKeys();
         return;
       }
 
