@@ -4,9 +4,20 @@ Custom quick chats, randomly send a quickchat from a group associated with a key
 
 # How?
 
-Install the package, change the messages and keys as needed. Uncomment the console log of `e.name` then run and press the key to find key codes.
+Install the package, change the messages and names as needed.
 
-`default.json` Contains my starter messages and keys, change as you please, or create other themed json files to use instead
+## Scripts
+
+- `start` runs the script in Node
+- `dev` runs the script in nodemon so changes are reflected immediately on save.
+
+## Install
+
+1. Install the package
+2. Copy `default.json`
+3. Rename `.END copy` to `.ENV`
+4. Open .ENV and change `MESSAGES_SRC` to point to your copy of `default.json`
+5. Run `start` script
 
 ## Use
 
@@ -21,20 +32,9 @@ Because it's not instant I find sticking to messages you can send when you have 
 
 You know, standard Rocket League situations when time isn't important.
 
-## Scripts
-
-- `start` runs the script in Node
-- `dev` runs the script in nodemon so changes are reflected immediately on save.
-
-## Install
-
-1. Install the package
-2. rename `.END copy` to `.ENV`
-3. run `start` script
-
 ## Different Message Sources
 
-The .ENV var `MESSAGES_SRC` points at the json file to use for the messages. Easily create multiple messages files and swap them by changing the path here. Default are whatever was in my own default.json file the last time I pushed here.
+The .ENV var `MESSAGES_SRC` points at the json file to use for the messages. Easily create multiple messages files and swap them by changing the path here. `default.json` contains a starter JSON for you.
 
 ## Single Mode
 
