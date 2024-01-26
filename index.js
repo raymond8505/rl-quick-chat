@@ -5,7 +5,14 @@ const logSingle = require("single-line-log").stdout;
 require("dotenv").config();
 
 // change which json you want to load here
-const messages = require(process.env.MESSAGES_SRC);
+const rawMessages = require(process.env.MESSAGES_SRC);
+const messages = new Map(Object.entries(rawMessages));
+messages.forEach((msg) => (msg.previouslySent = []));
+
+/**
+ * convert messages into a Map
+ * add array to each entry for used items so never repeat til all are used
+ */
 const SINGLE_MODE_KEY = "LEFT ALT";
 
 const sendkeys = require("sendkeys");
@@ -22,22 +29,38 @@ async function chat(msg, public = true) {
   return ks.sendKey("enter");
 }
 
-function random(tot, except) {
+function randomExcept(tot, except) {
   const i = Math.round(Math.random() * (tot - 1));
 
-  return i === except ? random(tot, except) : i;
+  return except.includes(i) ? randomExcept(tot, except) : i;
 }
 
 async function chatRandom(key) {
-  const i = random(messages[key].msgs.length, messages[key].lastMessageIndex);
-  messages[key].lastMessageIndex = i;
-  chat(messages[key].msgs[i]);
+  const message = messages.get(key);
+
+  if (!message) return;
+
+  const { msgs, previouslySent } = message;
+  const remainingMessages = msgs.filter((v, i) => {
+    return !previouslySent.includes(v);
+  });
+
+  const i = Math.floor(Math.random() * remainingMessages.length);
+  messages.get(key).previouslySent.push(remainingMessages[i]);
+
+  chat(remainingMessages[i]);
+
+  if (remainingMessages.length === 1) {
+    messages.get(key).previouslySent = [];
+  }
 }
 
 let singleMode = false;
 let singleModeKey = "";
 
 function printAllMessages(key) {
+  2222;
+  1;
   const { name, msgs } = messages[key];
 
   logSingle(
@@ -51,14 +74,11 @@ ${msgs.reduce((str, cur, curIndex) => {
 }
 
 function printAllKeys() {
-  logSingle(`=== LEGEND ===${Object.keys(messages).reduce((str, key) => {
-    const { msgs, name } = messages[key];
-    const lastMessageIndex = -1;
-
-    messages[key] = { name, msgs, lastMessageIndex };
-
-    return `${str}\n${key} => ${name}`;
-  }, "")}
+  let keys = "";
+  messages.forEach((value, key) => {
+    keys = `${keys}\n${key} => ${value.name}`;
+  });
+  logSingle(`=== LEGEND ===${keys}
 ==============`);
 }
 
@@ -69,9 +89,9 @@ keyboard.addListener(async function (e, down) {
     if (e.name === SINGLE_MODE_KEY) {
       singleMode = !singleMode;
     } else {
-      if (!messages[e.name] && !singleMode) return;
+      if (!messages.get(e.name) && !singleMode) return;
 
-      const keyMessages = messages[e.name];
+      const keyMessages = messages.get(e.name);
 
       if (down[SINGLE_MODE_KEY]) {
         printAllMessages(e.name);
@@ -84,7 +104,7 @@ keyboard.addListener(async function (e, down) {
 
         const singleIndexMatch = e.name.match(/NUMPAD ([\d])/);
 
-        const singleModeMessages = messages[singleModeKey];
+        const singleModeMessages = messages.get(singleModeKey);
 
         if (
           singleIndexMatch &&
