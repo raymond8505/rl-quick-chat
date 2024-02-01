@@ -59,18 +59,20 @@ let singleMode = false;
 let singleModeKey = "";
 
 function printAllMessages(key) {
-  2222;
-  1;
-  const { name, msgs } = messages[key];
+  try {
+    const { name, msgs } = messages.get(key);
 
-  logSingle(
-    `=== ${name} ===
+    logSingle(
+      `=== ${name} ===
 ${msgs.reduce((str, cur, curIndex) => {
   return `${str}\n${curIndex} => ${cur}`;
 }, "")}
 ======
 `
-  );
+    );
+  } catch (e) {
+    console.log(`->${key}<-`);
+  }
 }
 
 function printAllKeys() {
