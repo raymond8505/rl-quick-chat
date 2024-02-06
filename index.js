@@ -9,6 +9,13 @@ const rawMessages = require(process.env.MESSAGES_SRC);
 const messages = new Map(Object.entries(rawMessages));
 messages.forEach((msg) => (msg.previouslySent = []));
 
+let typing = false;
+/**
+ *
+ * TODO:
+ * -sequential messages option to move through a sequence of messages to tell a story
+ * -one keypress at a time
+ */
 /**
  * convert messages into a Map
  * add array to each entry for used items so never repeat til all are used
@@ -23,9 +30,15 @@ function sleep(ms) {
 }
 
 async function chat(msg, public = true) {
+  if (typing) return;
+
+  typing = true;
+
   await sendkeys(public ? "t" : "y");
   await sleep(35);
   await sendkeys(msg);
+
+  typing = false;
   return ks.sendKey("enter");
 }
 
